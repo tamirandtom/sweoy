@@ -1,0 +1,37 @@
+/*desktop*/
+.t-overview-col {
+    margin: 0 16px;
+    line-height:0;
+}
+
+
+/*overview*/
+
+.t-overview-item.t-overview-item--active {
+    border-radius: 0px;
+}
+
+.t-overview-item {
+    border-radius: 100px;
+    display: inline-block;
+    width:calc((100vw - 32px) / 9);
+    height: calc((100vw - 32px) / 9);
+}
+
+
+
+
+@media (min-width: 640px) {
+.t-overview-col {
+    width:600px;
+    margin: auto auto;
+}
+.t-overview-item {
+    border-radius: 100px;
+    display: inline-block;
+    width:40px;
+    height: 40px;
+}
+
+
+}

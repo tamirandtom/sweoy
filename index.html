@@ -1,0 +1,95 @@
+<!doctype html>
+<html ng-app="Trump">
+
+<head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <title>יום השואה 2017</title>
+      <meta name="description" content="food">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=no">
+      <meta property="og:url" content="" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="food" />
+      <meta property="og:site_name" content="Trump" />
+      <meta property="og:description" content="foo" />
+      <meta property="og:image" content="" />
+      <meta property="og:image:url" content="" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:type" content="image/png" />
+      <!--favicons-->
+      <link rel="shortcut icon" href="img/favicons/def.png" type="image/x-icon">
+      <link rel="icon" href="img/favicons/def.png" type="image/x-icon">
+
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
+      	<link rel="stylesheet" type="text/css" href="css/vendor/jquery.fullPage.css" />
+<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+
+<body id="top" ng-controller="index" ng-class="{'t-body-anger':(currAnger==currWinner && currScreen==1),'t-body-sadness':(currSad==currWinner && currScreen==1),'t-body-disgust':(currDisgust==currWinner && currScreen==1),'t-body-fear':(currFear==currWinner && currScreen==1),'t-body-joy':(currJoy==currWinner && currScreen==1)}">
+     <div class="holo-bg">
+          <div class="holo-bg__img"></div>
+     </div>
+     
+      <div id="pagecontainer">
+      <div class="section holo-section holo-section-intro fp-auto-height">
+              <div class="type-wrap">
+                    <i class="material-icons">search</i>
+            <div id="typed-strings">
+                <p>ריאל מדריד לצפייה ישירה</p>
+                <p>13 סיבות לצפייה ישירה</p>
+                <p>פאודה לצפייה ישירה</p>
+                <p>פולמון פרק 45 לצפייה</p>
+                <p>פאודה פרק 9 לצפייה ישירה</p>
+                <p>מהיר ועצבני 7 </p>
+                <p>משחקי הכס עונה 6 לצפייה ישירה</p>
+                <p>ספורט 5 לצפייה ישירה</p>
+                <p>ליגת האלופות לצפייה ישירה</p>
+                <p>נעלמים פרק 22 לצפייה ישירה</p>
+            </div>
+            <span id="typed" style="white-space:pre;"></span>
+        </div>
+            <div class="holo-section-intro__title holo-inner-padding holo-text-color-body">
+           <span class="holo-text-color-key">יום הזכרון לשואה ולגבורה בצפייה ישירה<br><br></span>
+
+בעזרת Google Trends בדקנו מה תושבי ישראל מחפשים ב-Google במהלך יום הזכרון לשואה ולגבורה. הוצאנו את 5 התוצאות עם העלייה החדה ביותר, ורשימת הישובים בהם מילות החיפוש הכי פופולריות.
+            </div>
+      </div>
+      <div class="section holo-section holo-section-2017 holo-inner-padding" ng-repeat="qu in data.y2017">
+            <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key">מקום {{qu.listid}}<br></span>{{qu.term}}</div>
+            <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index"  ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
+                  {{city.name}}
+            </div>
+      </div>
+      <div class="section holo-section holo-section-2016 holo-inner-padding" ng-repeat="qu in data.y2016">
+   <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key">מקום {{qu.listid}}<br></span>{{qu.term}}</div>
+            <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index"  ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
+                  {{city.name}}
+            </div>
+      </div>
+      <div class="section holo-section holo-section-2015 holo-inner-padding" ng-repeat="qu in data.y2015">
+   <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key">מקום {{qu.listid}}<br></span>{{qu.term}}</div>
+            <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index"  ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
+                  {{city.name}}
+            </div>
+      </div>
+      </div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/vendor/scrolloverflow.min.js"></script>
+	
+      <script type="text/javascript" src="js/vendor/jquery.fullPage.min.js"></script>
+      <script type="text/javascript" src="js/vendor/typed.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+
+      <script src="https://code.angularjs.org/1.5.8/angular-animate.js"></script>
+      <script src="js/app.js"></script>
+
+      
+</body>
+
+</html>
