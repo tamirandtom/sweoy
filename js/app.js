@@ -21,14 +21,17 @@ App.controller('index', ['$scope', '$http', '$location', function ($scope, $http
     $scope.activePart = path;
     try {
       $scope.activeChart = $scope.data[path];
-    } catch (err) {}
-    $scope.currYear = path.split("-")[0];
+      $scope.currYear = path.split("-")[0];
+    } catch (err) {
+
+    }
+    
   }
 
   $(document).ready(function () {
     var arrNames = [];
-    arrNames.push('y2017-Intro'); // pushing 1st slide
-    arrNames.push('y2017-Method'); // pushing 2nd slide
+    arrNames.push('y2017-intro'); // pushing 1st slide
+    arrNames.push('y2017-method'); // pushing 2nd slide
     angular.forEach($scope.data, function (value, key) {
       arrNames.push(key + "-intro"); // pushing intro slide
       angular.forEach(value, function (valueTwo, keyTwo) {
@@ -39,7 +42,7 @@ App.controller('index', ['$scope', '$http', '$location', function ($scope, $http
       });
 
     });
-    arrNames.push("y2015-method");
+    arrNames.push("y2015-credits");
 
 
     $('#pagecontainer').fullpage({
@@ -95,7 +98,7 @@ var allData = {
     },
     {
       csvlink: "https://trends.google.com/trends/explore?date=2017-04-23T01%202017-04-24T12&geo=IL&q=13%20%D7%A1%D7%99%D7%91%D7%95%D7%AA",
-      term: "13 סיבות",
+      term: "13 סיבות לצפייה ישירה",
       listid: 2,
       percent: 30,
       city: [{
@@ -127,7 +130,7 @@ var allData = {
     {
       csvlink: "https://trends.google.com/trends/explore?date=2017-04-23T01%202017-04-24T12&geo=IL&q=%D7%94%D7%9E%D7%A1%D7%A2%20%D7%A9%D7%9C%20%D7%A4%D7%90%D7%A0%D7%99",
       listid: 3,
-      term: "המסע של פאני",
+      term: "המסע של פאני לצפייה ישירה",
       percent: 90,
       city: [{
         name: "ירושלים",
