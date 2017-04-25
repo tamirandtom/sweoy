@@ -1,16 +1,16 @@
 <!doctype html>
-<html ng-app="Trump">
+<html ng-app="HoloWatchOnline">
 
 <head>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title>יום השואה 2017</title>
+      <title>יום השואה לצפייה ישירה</title>
       <meta name="description" content="food">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=no">
       <meta property="og:url" content="" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="food" />
-      <meta property="og:site_name" content="Trump" />
+      <meta property="og:title" content="Holocaust - Watch online" />
+      <meta property="og:site_name" content="Holocaust - Watch online searches" />
       <meta property="og:description" content="foo" />
       <meta property="og:image" content="" />
       <meta property="og:image:url" content="" />
@@ -18,8 +18,8 @@
       <meta property="og:image:height" content="630" />
       <meta property="og:image:type" content="image/png" />
       <!--favicons-->
-      <link rel="shortcut icon" href="img/favicons/def.png" type="image/x-icon">
-      <link rel="icon" href="img/favicons/def.png" type="image/x-icon">
+      <link rel="shortcut icon" href="img/def.png" type="image/x-icon">
+      <link rel="icon" href="img/def.png" type="image/x-icon">
 
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -30,7 +30,11 @@
 
 <body id="top" ng-controller="index" ng-class="{'t-body-anger':(currAnger==currWinner && currScreen==1),'t-body-sadness':(currSad==currWinner && currScreen==1),'t-body-disgust':(currDisgust==currWinner && currScreen==1),'t-body-fear':(currFear==currWinner && currScreen==1),'t-body-joy':(currJoy==currWinner && currScreen==1)}">
      <div class="holo-bg">
-          <div class="holo-bg__img"></div>
+          <div class="holo-bg__img holo-bg__img--three" ng-show="currYear=='y2015'"></div>
+           
+          <div class="holo-bg__img holo-bg__img--two" ng-show="currYear=='y2016'"></div>
+           
+          <div class="holo-bg__img holo-bg__img--one" ng-show="currYear=='y2017'"></div>
      </div>
      
       <div id="pagecontainer">
@@ -54,27 +58,43 @@
             <div class="holo-section-intro__title holo-inner-padding holo-text-color-body">
            <span class="holo-text-color-key">יום הזכרון לשואה ולגבורה בצפייה ישירה<br><br></span>
 
-בעזרת Google Trends בדקנו מה תושבי ישראל מחפשים ב-Google במהלך יום הזכרון לשואה ולגבורה. הוצאנו את 5 התוצאות עם העלייה החדה ביותר, ורשימת הישובים בהם מילות החיפוש הכי פופולריות.
+בעזרת Google Trends בדקנו מה תושבי ישראל מחפשים ב-Google במהלך יום הזכרון לשואה ולגבורה. הוצאנו את 5 התוצאות עם העלייה המשמעותית ביותר, ורשימת הערים בהם מילות החיפוש הכי פופולריות.
+           <br><br>
+          
             </div>
+             <div class='holo-section-intro__scrolldown holo-text-color-key'>לצפייה ברשימת החיפושים<br><br>↓</div>
       </div>
+      <div class="section holo-section holo-section-title">
+            <div class='holo-section-title__title'>2017</div>
+            </div>
+      
       <div class="section holo-section holo-section-2017 holo-inner-padding" ng-repeat="qu in data.y2017">
-            <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key">מקום {{qu.listid}}<br></span>{{qu.term}}</div>
+            <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}</div>
             <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index"  ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
                   {{city.name}}
             </div>
       </div>
+      <div class="section holo-section holo-section-title"><div class='holo-section-title__title'>2016</div></div>
       <div class="section holo-section holo-section-2016 holo-inner-padding" ng-repeat="qu in data.y2016">
-   <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key">מקום {{qu.listid}}<br></span>{{qu.term}}</div>
+   <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}</div>
             <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index"  ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
                   {{city.name}}
             </div>
       </div>
+      <div class="section holo-section holo-section-title"><div class='holo-section-title__title'>2015</div></div>
       <div class="section holo-section holo-section-2015 holo-inner-padding" ng-repeat="qu in data.y2015">
-   <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key">מקום {{qu.listid}}<br></span>{{qu.term}}</div>
+   <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}</div>
             <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index"  ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
                   {{city.name}}
             </div>
       </div>
+      <div class="section holo-section holo-section-method holo-inner-padding">
+<span class="holo-text-color-key">מתודולוגיה</span><br><br>
+לכתוב מתודולוגיה
+<br>
+
+      </div>
+
       </div>
 
 

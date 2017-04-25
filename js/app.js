@@ -1,115 +1,36 @@
-var QueryString = function () {
-  // This function is anonymous, is executed immediately and 
-  // the return value is assigned to QueryString!
-  var query_string = {};
-  var query = window.location.search.substring(1);
-  var vars = query.split("&");
-  for (var i = 0; i < vars.length; i++) {
-    var pair = vars[i].split("=");
-    // If first entry with this name
-    if (typeof query_string[pair[0]] === "undefined") {
-      query_string[pair[0]] = decodeURIComponent(pair[1]);
-      // If second entry with this name
-    } else if (typeof query_string[pair[0]] === "string") {
-      var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
-      query_string[pair[0]] = arr;
-      // If third or later entry with this name
-    } else {
-      query_string[pair[0]].push(decodeURIComponent(pair[1]));
-    }
-  }
-  return query_string;
-}();
-
-
-
-
-
-//get gui language from url param (default to EN)
-
-
-
-var App = angular.module('Trump', ['ngAnimate']);
-
+var App = angular.module('HoloWatchOnline', ['ngAnimate']);
 App.controller('index', ['$scope', '$http', '$location', function ($scope, $http, $location) {
-
   $scope.data = allData;
-
+  
   $scope.$on("$locationChangeSuccess", function () {
     updateState();
   });
 
   function updateState() {
     var path = $location.path().split("/")[1];
-    // console.log(path);
-
-    $scope.activePart = path;      
-
+    $scope.activePart = path;
     try {
-    $scope.activeChart = $scope.data[path];
-    } catch (err) {
-    // $scope.activeChart = [{value:0},{value:0},{value:0},{value:0},{value:0}];
-
-    }
-    // if (path == undefined) {
-
-    //   $location.path("/");
-    // } else if (path == "") {
-    //   $scope.currScreen = 0;
-
-    // } else if (path == "overview") {
-    //   $scope.currScreen = 2;
-    // } else {
-    //   var nPath = parseInt(path);
-    //   try {
-    //     if (nPath >= 0 && nPath <= $scope.tweets.length) {
-
-    //       $scope.currtweet = nPath;
-    //       if ($scope.currScreen != 1) {
-    //         $scope.changeView(1);
-    //       }
-    //       // Update overview item color
-    //       $scope.tweets[$scope.currtweet].color = true;
-
-    //       // TODO: Scroll to tweet x
-    //       var leftpos = $('#overviewTweet' + $scope.currtweet).offset().left;
-
-    //       $('.t-tweets-overview').animate({
-    //         scrollLeft: leftpos + $('.t-tweets-overview').scrollLeft() - ($('.t-tweets-overview').width() / 2)
-    //       }, 200);
-
-    //       $scope.updateUI();
-    //     }
-    //   } catch (err) {
-
-    //   }
-
-    // }
-
+      $scope.activeChart = $scope.data[path];
+    } catch (err) {}
+    $scope.currYear = path.split("-")[0];
   }
 
-  function updateFavicon() {
-    var src = "";
-    if ($scope.currScreen = 1) {
-      src = "img/favicons/" + $scope.currWinnerID + ".png";
-    } else {
-      src = "img/favicons/def.png";
-    }
-
-    $("link[type='image/x-icon']").attr("href", src);
-  }
   $(document).ready(function () {
     var arrNames = [];
-    arrNames.push('Intro'); // pushing 1st page;
+    arrNames.push('y2017-Intro'); // pushing 1st page;
     angular.forEach($scope.data, function (value, key) {
-      angular.forEach(value, function (valueTwo, keyTwo) {
-      $scope.data[key][keyTwo].nameid = key + "-" + valueTwo.listid;
-      $scope.data[key + "-" + valueTwo.listid] = $scope.data[key][keyTwo].city;
-        arrNames.push(key + "-" + valueTwo.listid);
-      });
-    });
 
-    console.log($scope.data);
+      arrNames.push(key + "-intro");
+      angular.forEach(value, function (valueTwo, keyTwo) {
+
+        $scope.data[key][keyTwo].nameid = key + "-" + valueTwo.listid;
+        $scope.data[key + "-" + valueTwo.listid] = $scope.data[key][keyTwo].city;
+        arrNames.push(key + "-" + valueTwo.listid);
+
+      });
+
+    });
+    arrNames.push("y2015-method");
 
 
     $('#pagecontainer').fullpage({
@@ -195,7 +116,7 @@ var allData = {
       listid: 3,
       term: "המסע של פאני",
       percent: 90,
-     city: [{
+      city: [{
         name: "ירושלים",
         value: 100
       }, {
@@ -211,7 +132,7 @@ var allData = {
       listid: 4,
       term: "כבודו פרק 3 לצפייה ישירה",
       percent: 30,
-     city: [{
+      city: [{
         name: "רמלה",
         value: 100
       }, {
@@ -242,7 +163,7 @@ var allData = {
       csvlink: "https://trends.google.com/trends/explore?date=2017-04-23T01%202017-04-24T12&geo=IL&q=%D7%A4%D7%95%D7%9C%20%D7%9E%D7%95%D7%9F%20%D7%A4%D7%A8%D7%A7%2045",
       term: "פול מון פרק 45 לצפייה ישירה",
       percent: 100,
-     city: [{
+      city: [{
         name: "אשקלון",
         value: 100
       }, {
@@ -263,20 +184,20 @@ var allData = {
       listid: 1,
       percent: 30,
       city: [{
-        name: "beer sheva",
+        name: "בית דגן",
         value: 100
       }, {
-        name: "beer sheva",
+        name: "קרית עקרון",
         value: 80
       }, {
-        name: "beer sheva",
-        value: 30
+        name: "גדרה",
+        value: 74
       }, {
-        name: "beer sheva",
-        value: 10
+        name: "בית שאן",
+        value: 74
       }, {
-        name: "beer sheva",
-        value: 5
+        name: "מבשרת ציון",
+        value: 72
       }]
     },
     {
@@ -285,20 +206,20 @@ var allData = {
       term: "רשימת שינדלר לצפייה ישירה",
       percent: 30,
       city: [{
-        name: "beer sheva",
+        name: "ראשון לציון",
         value: 100
       }, {
-        name: "beer sheva",
-        value: 80
+        name: "אשדוד",
+        value: 99
       }, {
-        name: "beer sheva",
-        value: 30
+        name: "גבעתיים",
+        value: 97
       }, {
-        name: "beer sheva",
-        value: 10
+        name: "ראש העין",
+        value: 94
       }, {
-        name: "beer sheva",
-        value: 5
+        name: "חולון",
+        value: 92
       }]
     },
     {
@@ -306,21 +227,27 @@ var allData = {
       csvlink: "",
       term: "הפסנתרן לצפייה ישירה",
       percent: 30,
- city: [{
-        name: "beer sheva",
+      city: [{
+        name: "בת-ים",
         value: 100
       }, {
-        name: "beer sheva",
-        value: 80
+        name: "חולון",
+        value: 92
       }, {
-        name: "beer sheva",
-        value: 30
+        name: "עפולה",
+        value: 93
       }, {
-        name: "beer sheva",
-        value: 10
+        name: "פתח תקווה",
+        value: 73
       }, {
-        name: "beer sheva",
-        value: 5
+        name: "באר שבע",
+        value: 72
+      }, {
+        name: "רחובות",
+        value: 68
+      }, {
+        name: "אשדוד",
+        value: 68
       }]
     },
     {
@@ -328,21 +255,24 @@ var allData = {
       csvlink: "",
       term: "משחקי הכס לצפייה ישירה",
       percent: 30,
-     city: [{
-        name: "beer sheva",
+      city: [{
+        name: "מבשרת ציון",
         value: 100
       }, {
-        name: "beer sheva",
-        value: 80
+        name: "מצפה רמון",
+        value: 59
       }, {
-        name: "beer sheva",
-        value: 30
+        name: "רמות נפתלי",
+        value: 57
       }, {
-        name: "beer sheva",
-        value: 10
+        name: "שוהם",
+        value: 51
       }, {
-        name: "beer sheva",
-        value: 5
+        name: "צפת",
+        value: 50
+      }, {
+        name: "מודיעין-מכבים רעות",
+        value: 47
       }]
     },
     {
@@ -351,20 +281,20 @@ var allData = {
       term: "ספורט 5 לצפייה ישירה",
       percent: 30,
       city: [{
-        name: "beer sheva",
+        name: "כפר סירקין",
         value: 100
       }, {
-        name: "beer sheva",
-        value: 80
+        name: "ביר אל-מכסור",
+        value: 79
       }, {
-        name: "beer sheva",
-        value: 30
+        name: "דלית אל-כרמל",
+        value: 63
       }, {
-        name: "beer sheva",
-        value: 10
+        name: "כאבול",
+        value: 45
       }, {
-        name: "beer sheva",
-        value: 5
+        name: "אלעד",
+        value: 42
       }]
     }
   ],
@@ -373,21 +303,27 @@ var allData = {
       csvlink: "",
       term: "פאודה לצפייה ישירה",
       percent: 30,
-       city: [{
-        name: "beer sheva",
+      city: [{
+        name: "נורדיה",
         value: 100
       }, {
-        name: "beer sheva",
-        value: 80
+        name: "מגשימים",
+        value: 63
       }, {
-        name: "beer sheva",
-        value: 30
+        name: "ג'וליס",
+        value: 50
       }, {
-        name: "beer sheva",
-        value: 10
+        name: "צפת",
+        value: 50
       }, {
-        name: "beer sheva",
-        value: 5
+        name: "קרית שמונה",
+        value: 49
+      }, {
+        name: "קרית גת",
+        value: 45
+      }, {
+        name: "דימונה",
+        value: 43
       }]
     },
     {
@@ -395,21 +331,21 @@ var allData = {
       csvlink: "",
       term: "מהיר ועצבני 7 לצפייה ישירה",
       percent: 30,
-       city: [{
-        name: "beer sheva",
+      city: [{
+        name: "נתיבות",
         value: 100
       }, {
-        name: "beer sheva",
-        value: 80
+        name: "דימונה",
+        value: 67
       }, {
-        name: "beer sheva",
-        value: 30
+        name: "קרית גת",
+        value: 65
       }, {
-        name: "beer sheva",
-        value: 10
+        name: "טבריה",
+        value: 61
       }, {
-        name: "beer sheva",
-        value: 5
+        name: "צפת",
+        value: 56
       }]
     },
     {
@@ -417,21 +353,21 @@ var allData = {
       csvlink: "",
       term: "משחקי הכס עונה 5 לצפייה ישירה",
       percent: 30,
-       city: [{
-        name: "beer sheva",
+      city: [{
+        name: "מבשרת ציון",
         value: 100
       }, {
-        name: "beer sheva",
-        value: 80
+        name: "מצפה רמון",
+        value: 59
       }, {
-        name: "beer sheva",
-        value: 30
+        name: "רמות נפתלי",
+        value: 57
       }, {
-        name: "beer sheva",
-        value: 10
+        name: "שוהם",
+        value: 51
       }, {
-        name: "beer sheva",
-        value: 5
+        name: "צפת",
+        value: 50
       }]
     },
     {
@@ -440,20 +376,23 @@ var allData = {
       term: "ליגת האלופות לצפייה ישירה",
       percent: 30,
       city: [{
-        name: "beer sheva",
+        name: "באר יעקב",
         value: 100
       }, {
-        name: "beer sheva",
-        value: 80
+        name: "אילת",
+        value: 85
       }, {
-        name: "beer sheva",
-        value: 30
+        name: "רמלה",
+        value: 79
       }, {
-        name: "beer sheva",
-        value: 10
+        name: "טבריה",
+        value: 73
       }, {
-        name: "beer sheva",
-        value: 5
+        name: "מצפה רמון",
+        value: 69
+      }, {
+        name: "נס ציונה",
+        value: 61
       }]
     },
     {
@@ -462,20 +401,20 @@ var allData = {
       term: "הפסנתרן לצפייה ישירה",
       percent: 10,
       city: [{
-        name: "beer sheva",
+        name: "בת-ים",
         value: 100
       }, {
-        name: "beer sheva",
-        value: 80
+        name: "חולון",
+        value: 92
       }, {
-        name: "beer sheva",
-        value: 30
+        name: "עפולה",
+        value: 92
       }, {
-        name: "beer sheva",
-        value: 10
+        name: "פתח תקווה",
+        value: 73
       }, {
-        name: "beer sheva",
-        value: 5
+        name: "באר שבע",
+        value: 72
       }]
     }
   ]

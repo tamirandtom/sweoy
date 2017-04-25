@@ -1,67 +1,99 @@
 /*main color: E83E3E*/
 
 @import url('https://fonts.googleapis.com/css?family=Secular+One&subset=hebrew,latin-ext');
-
 body {
-    font-size:24px;
+    font-size: 24px;
     font-family: 'Secular One', sans-serif;
 }
+
 #pagecontainer {
-    text-align:right;
-    direction:rtl;
+    text-align: right;
+    direction: rtl;
 }
+
 .holo-text-color-key {
-color: #F3B32A;    
+    color: #F3B32A;
 }
+
 .holo-text-color-body {
-color: #fff;    
+    color: #fff;
 }
 
 .holo-section-intro {
     /*padding-top:30%;*/
 }
+
 .holo-section-intro__title {
-/*margin-top:30%;*/
-font-size: 32px;
-line-height: 36px;
-margin-bottom:10%;
-direction:rtl;
-text-align:right;
-padding-right:16px;
-width:80%;
-margin-top:30%;
+    /*margin-top:30%;*/
+    font-size: 32px;
+    line-height: 36px;
+    direction: rtl;
+    text-align: right;
+    padding-right: 16px;
+    width: 80%;
+    margin-top: 30%;
+}
+
+.holo-section-intro__scrolldown {
+    text-align: center;
+    margin-top: 110px;
+    margin-bottom: 80px;
+    font-size: 13px;
+    letter-spacing: 0.4px;
 }
 
 .holo-inner-padding {
-    padding-right:16px;
+    padding-right: 16px;
+}
+
+.holo-text-meta {
+    font-size: 24px;
+    letter-spacing: 0.5px;
 }
 
 .holo-term-title {
-font-size: 48px;
-letter-spacing: 0;
-line-height: 45px;
-margin-bottom:40px;
-/*margin-right:8px;*/
+    font-size: 48px;
+    letter-spacing: 0;
+    line-height: 45px;
+    margin-bottom: 40px;
+    /*margin-right:8px;*/
+}
+
+.holo-section-title__title {
+    text-align: center;
+    font-size: 100px;
+    color: #F3B32A;
+    letter-spacing: 0.3px;
+}
+
+.holo-section-method {
+    font-size: 24px;
+    color: #fff;
 }
 
 
 /*Desktop*/
+
 @media (min-width: 640px) {
-   .holo-section-intro__title {
-font-size: 60px;
-line-height: 65px;
-width:80%;
-max-width:700px;
-margin-top:30vh;
-   }
-   .holo-inner-padding {
-    padding-right:70px;
-}
+    .holo-section-intro__title {
+        font-size: 60px;
+        line-height: 65px;
+        width: 80%;
+        max-width: 700px;
+        margin-top: 30vh;
+    }
+    .holo-inner-padding {
+        padding-right: 70px;
+        padding-left: 100px;
+    }
+    .holo-term-title {
+        font-size: 88px;
+        letter-spacing: 0.1px;
+        line-height: 77px;
+    }
 }
 
 
 /*tablet*/
 
-@media (min-width: 1024px) {
-   
-}
+@media (min-width: 1024px) {}
