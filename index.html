@@ -69,7 +69,7 @@
             </div>
       
       <div class="section holo-section holo-section-2017 holo-inner-padding" ng-repeat="qu in data.y2017">
-            <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}</div>
+            <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}&nbsp;<a href="{{qu.csvlink}}" target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a></div>
             <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index"  ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
                   {{city.name}}
             </div>

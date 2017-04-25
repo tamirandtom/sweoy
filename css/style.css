@@ -50,7 +50,17 @@ body {
     font-size: 24px;
     letter-spacing: 0.5px;
 }
-
+.holo-term-link .material-icons {
+    font-size: 36px;
+    top: 5px;
+    position: relative;
+    transform: scaleX(-1);
+    color:#fff;
+    transition:color 0.3s linear;
+}
+.holo-term-link .material-icons:hover {
+      color: #F3B32A;
+}
 .holo-term-title {
     font-size: 48px;
     letter-spacing: 0;
@@ -90,6 +100,9 @@ body {
         font-size: 88px;
         letter-spacing: 0.1px;
         line-height: 77px;
+    }
+    .holo-term-link .material-icons {
+    font-size: 58px;
     }
 }
 

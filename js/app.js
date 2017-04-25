@@ -1,7 +1,7 @@
 var App = angular.module('HoloWatchOnline', ['ngAnimate']);
 App.controller('index', ['$scope', '$http', '$location', function ($scope, $http, $location) {
   $scope.data = allData;
-  
+
   $scope.$on("$locationChangeSuccess", function () {
     updateState();
   });
@@ -35,6 +35,10 @@ App.controller('index', ['$scope', '$http', '$location', function ($scope, $http
 
     $('#pagecontainer').fullpage({
       anchors: arrNames,
+      scrollBar: false,
+      scrollOverflowOptions: {
+         scrollbars: false
+      },
       scrollOverflow: true
     });
 
