@@ -91,7 +91,7 @@ h2 {
 
 .footer-link {
     font-size:14px;
-    color:#fff;
+    color:#F3B32A;
     letter-spacing: 1.5px;
     text-decoration:none;
 }
@@ -111,7 +111,7 @@ h2 {
         font-size: 60px;
         line-height: 65px;
         width: 80%;
-        max-width: 700px;
+        max-width: 730px;
         /*margin-top: 150;*/
     }
     .holo-inner-padding {
