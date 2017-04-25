@@ -19,6 +19,10 @@ body {
     color: #fff;
 }
 
+h2 {
+    text-align:center;
+    font-size:14px;
+}
 .holo-section-intro {
     /*padding-top:30%;*/
 }
@@ -36,10 +40,13 @@ body {
 
 .holo-section-intro__scrolldown {
     text-align: center;
-    margin-top: 110px;
-    margin-bottom: 80px;
+    margin-bottom: 24px;
     font-size: 13px;
     letter-spacing: 0.4px;
+    position:absolute;
+    bottom:0px;
+    width:300px;
+    left:calc(50% - 150px);
 }
 
 .holo-inner-padding {
@@ -81,16 +88,29 @@ body {
     color: #fff;
 }
 
+.footer-link {
+    font-size:14px;
+    color:#fff;
+    text-decoration:none;
+}
+
+.spacer-intro {
+    height:calc(100% - 200px);
+}
 
 /*Desktop*/
 
 @media (min-width: 640px) {
+    h2 {
+        margin-top: -30px;
+    font-size: 24px;
+    }
     .holo-section-intro__title {
         font-size: 60px;
         line-height: 65px;
         width: 80%;
         max-width: 700px;
-        margin-top: 30vh;
+        margin-top: 0;
     }
     .holo-inner-padding {
         padding-right: 70px;

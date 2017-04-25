@@ -23,94 +23,133 @@
 
       <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      
-      	<link rel="stylesheet" type="text/css" href="css/vendor/jquery.fullPage.css" />
-<link rel="stylesheet" type="text/css" href="css/main.css">
+
+      <link rel="stylesheet" type="text/css" href="css/vendor/jquery.fullPage.css" />
+      <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
 <body id="top" ng-controller="index" ng-class="{'t-body-anger':(currAnger==currWinner && currScreen==1),'t-body-sadness':(currSad==currWinner && currScreen==1),'t-body-disgust':(currDisgust==currWinner && currScreen==1),'t-body-fear':(currFear==currWinner && currScreen==1),'t-body-joy':(currJoy==currWinner && currScreen==1)}">
-     <div class="holo-bg">
-          <div class="holo-bg__img holo-bg__img--three" ng-show="currYear=='y2015'"></div>
-           
-          <div class="holo-bg__img holo-bg__img--two" ng-show="currYear=='y2016'"></div>
-           
-          <div class="holo-bg__img holo-bg__img--one" ng-show="currYear=='y2017' || !currYear "></div>
-     </div>
-     
+      <div class="holo-bg">
+
+            <!--TODO: Solve fade-out bugs-->
+            <div class="holo-bg__img holo-bg__img--three" ng-show="currYear=='y2015'"></div>
+
+            <div class="holo-bg__img holo-bg__img--two" ng-show="currYear=='y2016'"></div>
+
+            <div class="holo-bg__img holo-bg__img--one" ng-show="currYear=='y2017' || !currYear "></div>
+      </div>
+
       <div id="pagecontainer">
-      <div class="section holo-section holo-section-intro fp-auto-height">
-              <div class="type-wrap">
-                    <i class="material-icons">search</i>
-            <div id="typed-strings">
-                <p>ריאל מדריד לצפייה ישירה</p>
-                <p>13 סיבות לצפייה ישירה</p>
-                <p>פאודה לצפייה ישירה</p>
-                <p>פולמון פרק 45 לצפייה</p>
-                <p>פאודה פרק 9 לצפייה ישירה</p>
-                <p>מהיר ועצבני 7 </p>
-                <p>משחקי הכס עונה 6 לצפייה ישירה</p>
-                <p>ספורט 5 לצפייה ישירה</p>
-                <p>ליגת האלופות לצפייה ישירה</p>
-                <p>נעלמים פרק 22 לצפייה ישירה</p>
-            </div>
-            <span id="typed" style="white-space:pre;"></span>
-        </div>
-            <div class="holo-section-intro__title holo-inner-padding holo-text-color-body">
-           <span class="holo-text-color-key">יום הזכרון לשואה ולגבורה בצפייה ישירה<br><br></span>
+            <div class="section holo-section">
+                  <h2 class="holo-text-color-key">יום הזכרון לשואה ולגבורה בצפייה ישירה<br><br></h2>
+                  <div class="type-wrap">
+                        <i class="material-icons">search</i>
+                        <div id="typed-strings">
+                              <p>ריאל מדריד לצפייה ישירה</p>
+                              <p>13 סיבות לצפייה ישירה</p>
+                              <p>פאודה לצפייה ישירה</p>
+                              <p>פולמון פרק 45 לצפייה</p>
+                              <p>פאודה פרק 9 לצפייה ישירה</p>
+                              <p>מהיר ועצבני 7 </p>
+                              <p>משחקי הכס עונה 6 לצפייה ישירה</p>
+                              <p>ספורט 5 לצפייה ישירה</p>
+                              <p>ליגת האלופות לצפייה ישירה</p>
+                              <p>נעלמים פרק 22 לצפייה ישירה</p>
+                        </div>
+                        <span id="typed" style="white-space:pre;"></span>
+                  </div>
 
-בעזרת Google Trends בדקנו מה תושבי ישראל מחפשים ב-Google במהלך יום הזכרון לשואה ולגבורה. הוצאנו את 5 התוצאות עם העלייה המשמעותית ביותר, ורשימת הערים בהן מילות החיפוש הכי פופולריות.
-           <br><br>
-          
+                  <div class='holo-section-intro__scrolldown holo-text-color-key'>לצפייה ברשימת החיפושים<br><br>↓</div>
+
             </div>
-            <!--TODO: Clickable div-->
-             <div class='holo-section-intro__scrolldown holo-text-color-key'>לצפייה ברשימת החיפושים<br><br>↓</div>
-      </div>
-      <div class="section holo-section holo-section-title">
-            <div class='holo-section-title__title'>2017</div>
+            <div class="section holo-section holo-section-intro fp-auto-height">
+
+                  <div class="holo-section-intro__title holo-inner-padding holo-text-color-body">
+                        בעזרת Google Trends בדקנו מה תושבי ישראל מחפשים ב-Google במהלך יום הזכרון לשואה ולגבורה. הוצאנו את 5 התוצאות עם העלייה המשמעותית
+                        ביותר, ורשימת הערים בהן מילות החיפוש הכי פופולריות.
+                        <br><br>
+
+                  </div>
+                  <!--TODO: Clickable div-->
             </div>
-      
-      <div class="section holo-section holo-section-2017 holo-inner-padding" ng-repeat="qu in data.y2017">
-            <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}&nbsp;<a href="{{qu.csvlink}}" target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a></div>
-            <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index"  ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
-                  {{city.name}}
+
+            <div class="section holo-section holo-section-title">
+                  <div class='holo-section-title__title'>2017</div>
             </div>
-      </div>
-      <div class="section holo-section holo-section-title"><div class='holo-section-title__title'>2016</div></div>
-      <div class="section holo-section holo-section-2016 holo-inner-padding" ng-repeat="qu in data.y2016">
-   <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}</div>
-            <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index"  ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
-                  {{city.name}}
+
+            <div class="section holo-section holo-section-2017 holo-inner-padding" ng-repeat="qu in data.y2017">
+                  <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}&nbsp;<a href="{{qu.csvlink}}"
+                              target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a></div>
+                  <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index" ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
+                        {{city.name}}
+                  </div>
             </div>
-      </div>
-      <div class="section holo-section holo-section-title"><div class='holo-section-title__title'>2015</div></div>
-      <div class="section holo-section holo-section-2015 holo-inner-padding" ng-repeat="qu in data.y2015">
-   <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}</div>
-            <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index"  ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
-                  {{city.name}}
+            <div class="section holo-section holo-section-title">
+                  <div class='holo-section-title__title'>2016</div>
             </div>
-      </div>
-      <div class="section holo-section holo-section-method holo-inner-padding">
-<span class="holo-text-color-key">מתודולוגיה</span><br><br>
-לכתוב מתודולוגיה
-<br>
+            <div class="section holo-section holo-section-2016 holo-inner-padding" ng-repeat="qu in data.y2016">
+                  <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}&nbsp;
+                        <a href="{{qu.csvlink}}" target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a>
+                  </div>
+                  <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index" ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
+                        {{city.name}}
+                  </div>
+            </div>
+            <div class="section holo-section holo-section-title">
+                  <div class='holo-section-title__title'>2015</div>
+            </div>
+            <div class="section holo-section holo-section-2015 holo-inner-padding" ng-repeat="qu in data.y2015">
+                  <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}&nbsp;
+                        <a href="{{qu.csvlink}}" target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a>
+                  </div>
+                  <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index" ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
+                        {{city.name}}
+                  </div>
+            </div>
+            <div class="section holo-section holo-section-method holo-inner-padding">
+                  <a href='http://tamirp.com/' class="footer-link" ng-click="sendEvent('Portfolio link clicked','Tamir')">Tamir Pomerantz</a>/<a class="footer-link" href='http://tomeven.ninja/' ng-click="sendEvent('Portfolio link clicked','Tom')">Tom Even</a>
+                  <br>
+
+            </div>
 
       </div>
+      <!--GoogleAnalytics code-->
+      <script>
+            (function (i, s, o, g, r, a, m) {
+                  i['GoogleAnalyticsObject'] = r;
+                  i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                  }, i[r].l = 1 * new Date();
+                  a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                  a.async = 1;
+                  a.src = g;
+                  m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-      </div>
+            ga('create', 'UA-71087902-9', 'auto');
+            ga('send', 'pageview');
+      </script>
 
+      <!--Vendor:Jq-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="js/vendor/scrolloverflow.min.js"></script>
-	
+      <!--Vendor: Page scrolling-->
+      <script type="text/javascript" src="js/vendor/scrolloverflow.min.js"></script>
       <script type="text/javascript" src="js/vendor/jquery.fullPage.min.js"></script>
-      <script type="text/javascript" src="js/vendor/typed.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
 
+      <!--Vendor: Typed JS-->
+      <script type="text/javascript" src="js/vendor/typed.js"></script>
+
+      <!--Vendor: AngularJS-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
       <script src="https://code.angularjs.org/1.5.8/angular-animate.js"></script>
+
+      <!--App file-->
       <script src="js/app.js"></script>
 
-      
+
 </body>
 
 </html>

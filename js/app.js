@@ -6,6 +6,16 @@ App.controller('index', ['$scope', '$http', '$location', function ($scope, $http
     updateState();
   });
 
+  $scope.sendEvent = function (type, val) {
+      ga('send', {
+        hitType: 'event',
+        eventCategory: type,
+        eventAction: 'custom event for ' + type + ' is ' + val,
+        eventLabel: 'Holo'
+      });
+  }
+
+
   function updateState() {
     var path = $location.path().split("/")[1];
     $scope.activePart = path;
@@ -17,12 +27,11 @@ App.controller('index', ['$scope', '$http', '$location', function ($scope, $http
 
   $(document).ready(function () {
     var arrNames = [];
-    arrNames.push('y2017-Intro'); // pushing 1st page;
+    arrNames.push('y2017-Intro'); // pushing 1st slide
+    arrNames.push('y2017-Method'); // pushing 2nd slide
     angular.forEach($scope.data, function (value, key) {
-
-      arrNames.push(key + "-intro");
+      arrNames.push(key + "-intro"); // pushing intro slide
       angular.forEach(value, function (valueTwo, keyTwo) {
-
         $scope.data[key][keyTwo].nameid = key + "-" + valueTwo.listid;
         $scope.data[key + "-" + valueTwo.listid] = $scope.data[key][keyTwo].city;
         arrNames.push(key + "-" + valueTwo.listid);
@@ -37,7 +46,7 @@ App.controller('index', ['$scope', '$http', '$location', function ($scope, $http
       anchors: arrNames,
       scrollBar: false,
       scrollOverflowOptions: {
-         scrollbars: false
+        scrollbars: false
       },
       scrollOverflow: true
     });

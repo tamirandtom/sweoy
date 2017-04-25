@@ -42,7 +42,7 @@
 	width: 80%;
 	margin: auto auto;
 	direction: rtl;
-	margin-top: 40%;
+	margin-top: 40px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -60,7 +60,7 @@
 
 @media (min-width: 640px) {
 	.type-wrap {
-		margin-top: 30vh;
+		margin-top: 24px;
 		max-width: 600px;
 	}
 }
