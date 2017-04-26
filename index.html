@@ -69,7 +69,8 @@
                         בישראל במהלך יום השואה, מ-13:00 בערב יום השואה ועד 14:00 ביום למחרת - ולסנן רק את החיפושים המכילים
                         את הביטוי "לצפייה ישירה". חמשת החיפושים שהציגו את העלייה המשמעותית ביותר בטווח הזמן הנתון מוינו לפי
                         כמות החיפושים ורשימת הערים בהן מילות החיפוש הכי פופולריות. רמת העניין בכל עיר מחושבת כחלק יחסי של
-                        מונח החיפוש הנתון כנגד כל החיפושים שנעשו באותו היום.
+                        מונח החיפוש הנתון כנגד כל החיפושים שנעשו באותו היום <a href="https://trends.google.com/trends/explore?date=2017-04-23T10%202017-04-24T11&geo=IL&q=%D7%91%D7%A8%D7%A6%D7%9C%D7%95%D7%A0%D7%94,13%20%D7%A1%D7%99%D7%91%D7%95%D7%AA,%D7%94%D7%9E%D7%A1%D7%A2%20%D7%A9%D7%9C%20%D7%A4%D7%90%D7%A0%D7%99,%D7%9B%D7%91%D7%95%D7%93%D7%95%20%D7%A4%D7%A8%D7%A7%203,%D7%A4%D7%95%D7%9C%20%D7%9E%D7%95%D7%9F%20%D7%A4%D7%A8%D7%A7%2045"
+                              target="_blank" class="holo-intro-link"><i class="material-icons">launch</i></a>
                         <br><br>
 
                   </div>
@@ -81,7 +82,8 @@
             </div>
 
             <div class="section holo-section holo-section-2017 holo-inner-padding" ng-repeat="qu in data.y2017">
-                  <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}&nbsp;<a href="{{qu.csvlink}}"
+                  <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}
+                  <a href="https://www.google.com/search?q={{qu.term}}"
                               target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a></div>
                   <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index" ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
                         {{city.name}}
@@ -91,8 +93,9 @@
                   <div class='holo-section-title__title'>2016</div>
             </div>
             <div class="section holo-section holo-section-2016 holo-inner-padding" ng-repeat="qu in data.y2016">
-                  <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}&nbsp;
-                        <a href="{{qu.csvlink}}" target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a>
+                  <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}
+                  <a href="https://www.google.com/search?q={{qu.term}}"
+                              target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a>
                   </div>
                   <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index" ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
                         {{city.name}}
@@ -102,18 +105,19 @@
                   <div class='holo-section-title__title'>2015</div>
             </div>
             <div class="section holo-section holo-section-2015 holo-inner-padding" ng-repeat="qu in data.y2015">
-                  <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}&nbsp;
-                        <a href="{{qu.csvlink}}" target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a>
+                  <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}
+                  <a href="https://www.google.com/search?q={{qu.term}}"
+                              target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a>
                   </div>
                   <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index" ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
                         {{city.name}}
                   </div>
             </div>
             <div class="section holo-section holo-section-credits holo-inner-padding">
-              נתראה בשנה הבאה!
-              <br><br><br>
-              
-                  <a href='http://tamirp.com/' class="footer-link" target="_blank" ng-click="sendEvent('Portfolio link clicked','Tamir')">Tamirp.com</a>
+                  נתראה בשנה הבאה!
+                  <br><br><br>
+
+                  <a href='http://tamirp.com/' class="footer-link" target="_blank" ng-click="sendEvent('Portfolio link clicked','Tamir')">Tamirp.com</a> <span class="footer-divider">/</span> <a href='https://docs.google.com/spreadsheets/d/14kBZmKCih96jBEzN50oAljBEcRU7hFof7YKJdda3A4I/pubhtml' class="footer-link" target="_blank" ng-click="sendEvent('Gett data link','clicked')">לצפייה בנתונים <i class="material-icons">file_download</i></a>
                   <br>
 
             </div>
