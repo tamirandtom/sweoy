@@ -12,11 +12,11 @@
 	height: 100%;
 	background-size: cover;
 	background-position: center;
-	opacity: 0.13;
-	transition:all 0.5s ease-out;
-	/*transition-delay:0s;*/
-	
-	
+	opacity: 0;
+    transition:all 0.3s ease-out;
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
 .holo-bg__img--one {
@@ -29,10 +29,8 @@
 		background-image: url('../img/Majdanek.jpg');
 }
 
-.holo-bg__img.ng-hide {
-	opacity:0;
-	/*transition-delay:0.5s;*/
-		
+.holo-bg__img.showing {
+	opacity: 0.14;
 }
 
 .type-wrap {

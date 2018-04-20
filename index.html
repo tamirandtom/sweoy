@@ -32,11 +32,11 @@
       <div class="holo-bg">
 
             <!--TODO: Solve fade-out bugs-->
-            <div class="holo-bg__img holo-bg__img--three" ng-show="currYear=='y2015'"></div>
+            <div class="holo-bg__img holo-bg__img--three" ng-class="{'showing':(currYear=='y2015' || currYear=='y2018')}"></div>
 
-            <div class="holo-bg__img holo-bg__img--two" ng-show="currYear=='y2016'"></div>
+            <div class="holo-bg__img holo-bg__img--two" ng-class="{'showing':currYear=='y2016'}"></div>
 
-            <div class="holo-bg__img holo-bg__img--one" ng-show="currYear=='y2017' || !currYear "></div>
+            <div class="holo-bg__img holo-bg__img--one" ng-class="{'showing':currYear=='y2017' || !currYear}"></div>
       </div>
 
       <div id="pagecontainer">
@@ -75,6 +75,19 @@
 
                   </div>
                   <!--TODO: Clickable div-->
+            </div>
+
+            <div class="section holo-section holo-section-title">
+                  <div class='holo-section-title__title'>2018</div>
+            </div>
+
+      <div class="section holo-section holo-section-2018 holo-inner-padding" ng-repeat="qu in data.y2018">
+                  <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}
+                  <a href="https://www.google.com/search?q={{qu.term}}"
+                              target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a></div>
+                  <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index" ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
+                        {{city.name}}
+                  </div>
             </div>
 
             <div class="section holo-section holo-section-title">
