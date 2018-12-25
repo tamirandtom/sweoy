@@ -38,9 +38,7 @@
                                           <div class="left-title">{{page.title}}</div>
                                           <div class="left-body">{{page.content}}</div>
                                     </div>
-                                    <div class="screen-right-container">
-                                          {{page.image}}
-                                    </div>
+                                    <div class="screen-right-container" ng-bind-html="page.image"></div>
                   </div>
                  
             </div>
@@ -103,10 +101,14 @@
 
       <!--Vendor: AngularJS-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+      <script src="https://code.angularjs.org/1.5.8/angular-sanitize.min.js"></script>
       <script src="https://code.angularjs.org/1.5.8/angular-animate.js"></script>
 
       <!--App file-->
+      <script src="js/illustrations.js"></script>
       <script src="js/app.js"></script>
+
+
 
 
 </body>

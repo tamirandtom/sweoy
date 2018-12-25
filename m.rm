@@ -1,0 +1,3 @@
+aws s3 sync . s3://similarweb-designers-demos/eoy/ --acl public-read
+open ~/.aws/credentials
+http://similarweb-designers-demos.s3.amazonaws.com/eoy/index.html

@@ -2,11 +2,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Secular+One&subset=hebrew,latin-ext');
 
-body {
-    font-size: 24px;
-    font-family: 'Secular One', sans-serif;
-}
-
 
 body.fp-viewing-0 {
     --bg-color:#4F8DF9;
@@ -140,6 +135,15 @@ body.fp-viewing-2 {
 }
 
 
+.move {
+    transform: translateY(28px); 
+    transition: all 0.4s ease-in 1s;
+}
+
+.active .move {
+    transform: translateY(0px); 
+}
+
 /*Desktop*/
 
 @media (min-width: 640px) {}
@@ -156,8 +160,8 @@ body.fp-viewing-2 {
 }
 
 #fp-nav ul li a.active span, .fp-slidesNav ul li a.active span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span {
-    height: 22px;
-    width: 22px;
+    height: 21px;
+    width: 21px;
     margin: -8px 0 0 -7px;
     background: var(--dark-color);
 }
