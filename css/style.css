@@ -1,175 +1,167 @@
 /*main color: E83E3E*/
 
 @import url('https://fonts.googleapis.com/css?family=Secular+One&subset=hebrew,latin-ext');
+
 body {
     font-size: 24px;
     font-family: 'Secular One', sans-serif;
 }
 
-#pagecontainer {
+
+body.fp-viewing-0 {
+    --bg-color:#4F8DF9;
+    --meta-color:#3063BB;
+    --text-color:#fff;
+    --dark-color:#1B2653;
+}
+
+body.fp-viewing-1 {
+    --bg-color:#2B3B67;
+    --meta-color:#3063BB;
+    --text-color:#fff;
+    --dark-color:#1B2653;
+}
+
+body.fp-viewing-2 {
+    --bg-color:#FFC100;
+    --meta-color:#FF8100;
+    --text-color:#2C2C2C;
+    --dark-color:#FF8100;
+}
+
+.border {
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    position: fixed;
+    pointer-events: none;
+    border: 11px solid #fff;
+    box-sizing: border-box;
+    
+}
+
+
+
+.floating-title {
+    font-family: 'Roboto Mono';
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--text-color);
     text-align: right;
-    direction: rtl;
+    position: fixed;
+    top: 35px;
+    right: 44px;
+    transition: all 0.3s linear;
+
 }
 
-.holo-text-color-key {
-    color: #F3B32A;
-}
-
-.holo-text-color-body {
-    color: #fff;
-}
-
-h2 {
-    text-align: center;
-    font-size: 14px;
-}
-
-.holo-section-intro {
-    /*padding-top:30%;*/
-}
-
-.holo-intro-link .material-icons {
-    font-size: 24px;
-    top: 3px;
-    left: 4px;
-    position: relative;
-    color: #fff;
-    transform: scaleX(-1);
-}
-
-.holo-section-intro__title {
-    margin-top: 150px;
-    margin-bottom: 75px;
-    font-size: 32px;
-    line-height: 36px;
-    direction: rtl;
-    text-align: right;
-    padding-right: 16px;
-    width: 80%;
-}
-
-.holo-section-intro__scrolldown {
-    text-align: center;
-    margin-bottom: 24px;
-    font-size: 13px;
-    letter-spacing: 0.4px;
-    position: absolute;
-    bottom: 0px;
-    width: 300px;
-    left: calc(50% - 150px);
-}
-
-.holo-inner-padding {
-    padding-right: 16px;
-}
-
-.holo-text-meta {
-    font-size: 24px;
-    letter-spacing: 0.5px;
-}
-
-.holo-term-link .material-icons {
-    font-size: 36px;
-    top: 5px;
-    position: relative;
-    transform: scaleX(-1);
-    color: #fff;
-    transition: color 0.3s linear;
-}
-
-.holo-term-link .material-icons:hover {
-    color: #F3B32A;
-}
-
-.holo-term-title {
-    font-size: 48px;
-    letter-spacing: 0;
-    line-height: 45px;
-    margin-bottom: 40px;
-    /*margin-right:8px;*/
-}
-
-.holo-section-title__title {
-    text-align: center;
-    font-size: 100px;
-    color: #F3B32A;
-    letter-spacing: 0.3px;
-}
-
-.holo-section-credits {
-    font-size: 24px;
-    color: #fff;
-    text-align: center;
-}
-
-.footer-link {
-    font-size: 14px;
-    color: #fff;
-    letter-spacing: 1.5px;
-    text-decoration: none;
-    direction: rtl;
-}
-
-.footer-link .material-icons {
+.floating-title2 {
+    font-family: 'Roboto Mono';
     font-size: 16px;
-    position: relative;
-    top: 5px;
+    font-weight: 400;
+    color: var(--text-color);
+    letter-spacing: 0;
+    text-align: right;
+    position: fixed;
+    bottom: 37px;
+    right: 44px;
+    text-align: right;
+    transition: all 0.3s linear;
+
 }
 
-.footer-divider {
-    font-size:18px;
-    position:relative;
-    top: 4px;
-    padding: 6px;
+
+
+#logo-float {
+    position: fixed;
+    top: 38px;
+    left: 46px;
+    z-index: 99;
 }
 
-.spacer-intro {
-    height: calc(100% - 200px);
+.section {
+    height: 100vh;
+}
+
+.contain-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: var(--bg-color);
+    transition: all 0.3s linear;
+}
+
+
+.screen-left-container {
+    max-width: 460px;
+}
+
+
+.screen-right-container {
+    max-width: 460px;
+    width: 310px;
+    text-align: center;
+}
+
+.left-meta-tag {
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--meta-color);
+    letter-spacing: 1.75px;
+    text-align: left;
+    line-height: 24px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    transition: all 0.3s linear;
+
+}
+
+.left-title {
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--text-color);
+    padding-bottom: 18px;
+    transition: all 0.3s linear;
+
+}
+
+.left-body {
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--text-color);
+    letter-spacing: 0;
+    line-height: 28px;
+    transition: all 0.3s linear;
+
 }
 
 
 /*Desktop*/
 
-@media (min-width: 640px) {
-    .holo-intro-link .material-icons {
-        font-size: 42px;
-        top: 5px;
-        left: 8px;
-    }
-    .holo-term-link .material-icons {
-        font-size: 36px;
-        top: 5px;
-        position: relative;
-        transform: scaleX(-1);
-        color: #fff;
-        transition: color 0.3s linear;
-    }
-    h2 {
-        margin-top: -30px;
-        font-size: 24px;
-    }
-    .holo-section-intro__title {
-        font-size: 60px;
-        line-height: 65px;
-        width: 80%;
-        max-width: 730px;
-        /*margin-top: 150;*/
-    }
-    .holo-inner-padding {
-        padding-right: 70px;
-        padding-left: 100px;
-    }
-    .holo-term-title {
-        font-size: 88px;
-        letter-spacing: 0.1px;
-        line-height: 77px;
-    }
-    .holo-term-link .material-icons {
-        font-size: 58px;
-    }
+@media (min-width: 640px) {}
+
+
+
+/* dots override */
+
+#fp-nav ul li a span, .fp-slidesNav ul li a span {
+    height: 11px;
+    width: 11px;
+    background: var(--meta-color);
+    transition: all .3s linear;
 }
 
+#fp-nav ul li a.active span, .fp-slidesNav ul li a.active span, #fp-nav ul li:hover a.active span, .fp-slidesNav ul li:hover a.active span {
+    height: 22px;
+    width: 22px;
+    margin: -8px 0 0 -7px;
+    background: var(--dark-color);
+}
 
-/*tablet*/
-
-@media (min-width: 1024px) {}
+#fp-nav ul li, .fp-slidesNav ul li {
+    height: 22px;
+}

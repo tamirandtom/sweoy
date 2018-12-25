@@ -1,19 +1,19 @@
 <!doctype html>
-<html ng-app="HoloWatchOnline">
+<html ng-app="SWEOY">
 
 <head>
       <meta charset="utf-8">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title>יום השואה לצפייה ישירה</title>
-      <meta name="description" content="מה ישראלים רצו לראות ביום השואה?">
+      <title>SimilarWeb Design</title>
+      <meta name="description" content="SimilarWeb Design">
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=no">
       <meta property="og:url" content="https://tamirandtom.github.io/holocaustWatchOnline/" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="יום השואה לצפייה ישירה" />
-      <meta property="og:site_name" content="יום השואה לצפייה ישירה" />
-      <meta property="og:description" content="מה ישראלים רצו לראות ביום השואה?" />
+      <meta property="og:title" content="SimilarWeb Design" />
+      <meta property="og:site_name" content="SimilarWeb Design" />
+      <meta property="og:description" content="SimilarWeb Design" />
       <meta property="og:image" content="" />
-      <meta property="og:image:url" content="https://tamirandtom.github.io/holocaustWatchOnline/img/preview.png" />
+      <meta property="og:image:url" content="" />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:image:type" content="image/png" />
@@ -28,131 +28,67 @@
       <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
-<body id="top" ng-controller="index" ng-class="{'t-body-anger':(currAnger==currWinner && currScreen==1),'t-body-sadness':(currSad==currWinner && currScreen==1),'t-body-disgust':(currDisgust==currWinner && currScreen==1),'t-body-fear':(currFear==currWinner && currScreen==1),'t-body-joy':(currJoy==currWinner && currScreen==1)}">
-      <div class="holo-bg">
-
-            <!--TODO: Solve fade-out bugs-->
-            <div class="holo-bg__img holo-bg__img--three" ng-class="{'showing':(currYear=='y2015' || currYear=='y2018')}"></div>
-
-            <div class="holo-bg__img holo-bg__img--two" ng-class="{'showing':currYear=='y2016'}"></div>
-
-            <div class="holo-bg__img holo-bg__img--one" ng-class="{'showing':currYear=='y2017' || !currYear}"></div>
-      </div>
-
-      <div id="pagecontainer">
-            <div class="section holo-section">
-                  <h2 class="holo-text-color-key">יום הזכרון לשואה ולגבורה בצפייה ישירה<br><br></h2>
-                  <div class="type-wrap">
-                        <i class="material-icons">search</i>
-                        <div id="typed-strings">
-                              <p>ריאל מדריד לצפייה ישירה</p>
-                              <p>13 סיבות לצפייה ישירה</p>
-                              <p>פאודה לצפייה ישירה</p>
-                              <p>פולמון פרק 45 לצפייה</p>
-                              <p>פאודה פרק 9 לצפייה ישירה</p>
-                              <p>מהיר ועצבני 7 </p>
-                              <p>משחקי הכס עונה 6 לצפייה ישירה</p>
-                              <p>ספורט 5 לצפייה ישירה</p>
-                              <p>ליגת האלופות לצפייה ישירה</p>
-                              <p>נעלמים פרק 22 לצפייה ישירה</p>
-                        </div>
-                        <span id="typed" style="white-space:pre;"></span>
+<body id="top" ng-controller="index">
+  
+      <div id="pagecontainer"> 
+            <div class="section" ng-repeat="page in allPages">
+                  <div class="contain-flex">
+                              <div class="screen-left-container">
+                                          <div class="left-meta-tag">{{page.titlemeta}}</div>
+                                          <div class="left-title">{{page.title}}</div>
+                                          <div class="left-body">{{page.content}}</div>
+                                    </div>
+                                    <div class="screen-right-container">
+                                          {{page.image}}
+                                    </div>
                   </div>
-
-                  <div class='holo-section-intro__scrolldown holo-text-color-key'>לצפייה ברשימת החיפושים<br><br>↓</div>
-
+                 
             </div>
-            <div class="section holo-section holo-section-intro fp-auto-height">
+   </div>
 
-                  <div class="holo-section-intro__title holo-inner-padding holo-text-color-body">
-                        מהם התכנים בהם תושבי ישראל צופים במהלך יום הזכרון לשואה ולגבורה? בעזרת Google Trends ניתן לשלוף ולמיין את כל החיפושים שנעשו
-                        בישראל במהלך יום השואה, מ-13:00 בערב יום השואה ועד 14:00 ביום למחרת - ולסנן רק את החיפושים המכילים
-                        את הביטוי "לצפייה ישירה". חמשת החיפושים שהציגו את העלייה המשמעותית ביותר בטווח הזמן הנתון מוינו לפי
-                        כמות החיפושים ורשימת הערים בהן מילות החיפוש הכי פופולריות. רמת העניין בכל עיר מחושבת כחלק יחסי של
-                        מונח החיפוש הנתון כנגד כל החיפושים שנעשו באותו היום <a href="https://trends.google.com/trends/explore?date=2017-04-23T10%202017-04-24T11&geo=IL&q=%D7%91%D7%A8%D7%A6%D7%9C%D7%95%D7%A0%D7%94,13%20%D7%A1%D7%99%D7%91%D7%95%D7%AA,%D7%94%D7%9E%D7%A1%D7%A2%20%D7%A9%D7%9C%20%D7%A4%D7%90%D7%A0%D7%99,%D7%9B%D7%91%D7%95%D7%93%D7%95%20%D7%A4%D7%A8%D7%A7%203,%D7%A4%D7%95%D7%9C%20%D7%9E%D7%95%D7%9F%20%D7%A4%D7%A8%D7%A7%2045"
-                              target="_blank" class="holo-intro-link"><i class="material-icons">launch</i></a>
-                        <br><br>
 
-                  </div>
-                  <!--TODO: Clickable div-->
-            </div>
 
-            <div class="section holo-section holo-section-title">
-                  <div class='holo-section-title__title'>2018</div>
-            </div>
+      <div class="floating-title">Similarweb Design in 2018</div>
+      <div class="floating-title2">Created by the Design Team</div>
 
-      <div class="section holo-section holo-section-2018 holo-inner-padding" ng-repeat="qu in data.y2018">
-                  <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}
-                  <a href="https://www.google.com/search?q={{qu.term}}"
-                              target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a></div>
-                  <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index" ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
-                        {{city.name}}
-                  </div>
-            </div>
 
-            <div class="section holo-section holo-section-title">
-                  <div class='holo-section-title__title'>2017</div>
-            </div>
+<div class="border"></div>
 
-            <div class="section holo-section holo-section-2017 holo-inner-padding" ng-repeat="qu in data.y2017">
-                  <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}
-                  <a href="https://www.google.com/search?q={{qu.term}}"
-                              target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a></div>
-                  <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index" ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
-                        {{city.name}}
-                  </div>
-            </div>
-            <div class="section holo-section holo-section-title">
-                  <div class='holo-section-title__title'>2016</div>
-            </div>
-            <div class="section holo-section holo-section-2016 holo-inner-padding" ng-repeat="qu in data.y2016">
-                  <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}
-                  <a href="https://www.google.com/search?q={{qu.term}}"
-                              target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a>
-                  </div>
-                  <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index" ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
-                        {{city.name}}
-                  </div>
-            </div>
-            <div class="section holo-section holo-section-title">
-                  <div class='holo-section-title__title'>2015</div>
-            </div>
-            <div class="section holo-section holo-section-2015 holo-inner-padding" ng-repeat="qu in data.y2015">
-                  <div class="holo-section__q-item holo-term-title holo-text-color-body"><span class="holo-text-color-key holo-text-meta">מקום {{qu.listid}}<br></span>{{qu.term}}
-                  <a href="https://www.google.com/search?q={{qu.term}}"
-                              target="_blank" class="holo-term-link"><i class="material-icons">launch</i></a>
-                  </div>
-                  <div class="holo-section holo-section-city-bar" ng-repeat="city in qu.city track by $index" ng-style="activePart==qu.nameid && {width:'calc(90% * (' + (activeChart[$index].value / 100) + '))'} || {'width':'0px'}">
-                        {{city.name}}
-                  </div>
-            </div>
-            <div class="section holo-section holo-section-credits holo-inner-padding">
-                  נתראה בשנה הבאה!
-                  <br><br><br>
+      <!-- logo -->
 
-                  <a href='http://tamirp.com/' class="footer-link" target="_blank" ng-click="sendEvent('Portfolio link clicked','Tamir')">Tamirp.com</a> <span class="footer-divider">/</span> <a href='https://docs.google.com/spreadsheets/d/14kBZmKCih96jBEzN50oAljBEcRU7hFof7YKJdda3A4I/pubhtml' class="footer-link" target="_blank" ng-click="sendEvent('Gett data link','clicked')">לצפייה בנתונים <i class="material-icons">file_download</i></a>
-                  <br>
+<a href="http://similarweb.com" id="logo-float">
+      <svg  width="118px" height="18px" viewBox="0 0 118 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <polygon id="path-1" points="0 0.186166071 0 16.1307511 10.7315856 16.1307511 10.7315856 0.186166071 3.05810374e-20 0.186166071"></polygon>
+                <polygon id="path-3" points="0.0700637748 17.9005838 97.1315209 17.9005838 97.1315209 0.227308542 0.0700637748 0.227308542 0.0700637748 17.9005838"></polygon>
+            </defs>
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Artboard-Copy-2" transform="translate(-46.000000, -38.000000)">
+                    <g id="Group-Copy" transform="translate(46.000000, 38.000000)">
+                        <g id="Page-1">
+                            <path d="M12.1710423,1.32296863 C12.0153451,1.268112 11.8554169,1.21036818 11.6884372,1.1607085 C9.03340372,0.355759667 7.55681813,1.67433977 7.16475434,3.03478413 C6.62686537,4.89355766 7.54384336,6.16680886 9.9185089,8.03972962 C12.8304993,10.3350464 14.0354608,12.4675256 13.1909723,15.3913839 C12.9419131,16.256675 12.525028,17.0333294 11.9538559,17.6751519 C14.3070849,16.6940844 16.2222742,14.6643892 16.9993503,11.9741047 C18.2545186,7.63494545 16.1176298,3.09483771 12.1710423,1.32296863" id="Fill-1" fill="#FFFFFF"></path>
+                            <g id="Group-5" transform="translate(0.000000, 1.216460)">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <g id="Clip-4"></g>
+                                <path d="M8.04314648,8.53563353 C5.20477383,6.42625184 3.72903441,4.14594844 4.53854743,1.34421836 C4.65983335,0.929040299 4.82060772,0.541867995 5.01861404,0.186166071 C2.8413907,1.22295634 1.09459135,3.17556356 0.359260185,5.7180239 C-0.409072032,8.37279596 0.0927132158,11.1000365 1.5004761,13.2273188 C2.47104554,14.4422487 3.41058835,15.3551785 5.31816206,15.8945058 C7.90042397,16.6240989 9.98372124,15.6092513 10.5633551,13.6017875 C11.1015261,11.7430139 10.3712721,10.3669787 8.04314648,8.53563353" id="Fill-3" fill="#FFFFFF" mask="url(#mask-2)"></path>
+                            </g>
+                            <g id="Group-8" transform="translate(20.026280, 0.061584)">
+                                <mask id="mask-4" fill="white">
+                                    <use xlink:href="#path-3"></use>
+                                </mask>
+                                <g id="Clip-7"></g>
+                                <path d="M92.6295567,15.3325141 C92.0674105,15.3325141 91.6615258,15.0377319 91.4124665,14.4470126 C91.1634073,13.8562933 91.0384546,12.8353826 91.0384546,11.3848579 L91.0384546,11.0819916 C91.0534038,9.7440673 91.1814592,8.80977231 91.4229028,8.27824046 C91.6649105,7.74786349 92.0595128,7.48224192 92.6081201,7.48224192 C93.6607691,7.48224192 94.1876577,8.7762809 94.1876577,11.3626265 C94.1876577,14.0096032 93.6686668,15.3325141 92.6295567,15.3325141 L92.6295567,15.3325141 Z M96.1902857,6.64091448 C95.5621375,5.51288899 94.6998792,4.94786572 93.6037929,4.94786572 C93.0701348,4.94786572 92.5968377,5.08702832 92.1858758,5.36333249 C91.774914,5.63963667 91.3924403,6.12208627 91.0384546,6.80923771 L90.8872703,6.80923771 C90.9738628,5.68814147 91.0204027,5.03390401 91.0283004,4.84710276 C91.0353519,4.6603015 91.0384546,4.48129566 91.0384546,4.30864165 L91.0384546,0.227308542 L88.1603115,0.227308542 L88.1603115,17.6766244 L90.2816869,17.6766244 L90.7676767,16.2517957 L90.9521442,16.2517957 C91.3196687,16.8653237 91.7117325,17.2932054 92.1260791,17.5357295 C92.5415539,17.7794084 93.0187999,17.9006704 93.5603556,17.9006704 C94.6781605,17.9006704 95.5536756,17.3365133 96.1843624,16.2073329 C96.8158954,15.0784413 97.1315209,13.4783601 97.1315209,11.4079554 C97.1315209,9.35978219 96.8175878,7.77009486 96.1902857,6.64091448 L96.1902857,6.64091448 Z M80.5094262,10.0281669 C80.5528635,9.07885851 80.7074325,8.37755983 80.9748257,7.92513701 C81.2413727,7.47358035 81.5804091,7.24693586 81.991371,7.24693586 C82.4316671,7.24693586 82.777755,7.48224192 83.030481,7.95343148 C83.282925,8.42462104 83.4163395,9.11610327 83.4310066,10.0281669 L80.5094262,10.0281669 Z M82.0128075,4.94786572 C80.6061729,4.94786572 79.5100866,5.52790238 78.7237025,6.68624338 C77.9373185,7.84545054 77.5438444,9.45621436 77.5438444,11.519401 C77.5438444,13.553427 77.9782172,15.1252138 78.847527,16.2347612 C79.7171189,17.3454636 80.9057209,17.9006704 82.4133331,17.9006704 C83.7051692,17.9006704 84.8125379,17.6128175 85.7365674,17.0371116 L85.7365674,14.5815557 C84.7544335,15.1864222 83.7951465,15.4892885 82.857296,15.4892885 C82.1219649,15.4892885 81.5440233,15.2181813 81.1262921,14.6765443 C80.7074325,14.1346186 80.4877076,13.3062835 80.466271,12.1924052 L86.2552763,12.1924052 L86.2552763,10.6001194 C86.2552763,8.81323694 85.8767514,7.42478682 85.1197016,6.43390289 C84.3618056,5.44388512 83.3263623,4.94786572 82.0128075,4.94786572 L82.0128075,4.94786572 Z M72.5979173,10.5328479 C72.4828367,11.2430968 72.2986513,12.7043042 72.0459253,14.917336 C71.9161776,13.4223485 71.7396078,11.9833726 71.515934,10.6001194 L69.8278032,1.28113323 L66.7759109,1.28113323 L65.0877801,10.6001194 C64.9289802,11.4602136 64.7591799,12.8919716 64.5795075,14.8951046 C64.3482181,12.9142029 64.1640327,11.4602136 64.0275155,10.5328479 L62.6093164,1.28113323 L59.7198908,1.28113323 L62.5878798,17.6766244 L66.2670742,17.6766244 L67.7715837,9.13111666 L68.2152646,5.75570174 L68.3018571,4.92592307 C68.4031167,6.52600428 68.5726349,7.91272209 68.8106938,9.08607649 L70.3583586,17.6766244 L74.037553,17.6766244 L76.8838233,1.28113323 L73.9726791,1.28113323 L72.5979173,10.5328479 Z M57.1125256,5.45254669 C56.7371033,5.78919316 56.3910153,6.34959692 56.0734155,7.13520157 L55.9758226,7.13520157 L55.6511712,5.1834605 L53.2810186,5.1834605 L53.2810186,17.6766244 L56.160008,17.6766244 L56.160008,11.2503148 C56.160008,10.1592454 56.3470139,9.32686821 56.7224362,8.75578184 C57.0978584,8.1835406 57.6351833,7.8977087 58.3349748,7.8977087 C58.6593442,7.8977087 58.9233526,7.93466474 59.1247436,8.00915427 L59.4603954,5.11618895 C59.1213589,5.00387722 58.775553,4.94786572 58.4215673,4.94786572 C57.924013,4.94786572 57.4871016,5.11618895 57.1125256,5.45254669 L57.1125256,5.45254669 Z M48.0755961,12.8769582 C48.0755961,13.6917235 47.9190526,14.3442286 47.6051195,14.8333188 C47.2911864,15.3238525 46.8706345,15.5681089 46.3445921,15.5681089 C45.6371849,15.5681089 45.2840454,15.0518791 45.2840454,14.0202858 C45.2840454,13.3250502 45.4372042,12.8016025 45.7432396,12.4502314 C46.0504032,12.0994377 46.5321622,11.9045523 47.1887985,11.8675962 L48.0755961,11.8222673 L48.0755961,12.8769582 Z M47.036486,4.92592307 C45.6298513,4.92592307 44.3281431,5.3180036 43.1307972,6.10360825 L44.1256238,8.16679489 C45.0631922,7.5832936 45.8938598,7.29197604 46.61537,7.29197604 C47.588478,7.29197604 48.0755961,7.87461117 48.0755961,9.04161374 L48.0755961,9.93866397 L46.4743398,10.0059355 C45.0891418,10.0734958 44.0486214,10.4265992 43.3522145,11.0652459 C42.6558077,11.7044699 42.3080274,12.6820728 42.3080274,13.9980544 C42.3080274,15.2245331 42.5621637,16.1807708 43.0710004,16.8690771 C43.5798372,17.5570947 44.2779364,17.9006704 45.1647339,17.9006704 C45.857474,17.9006704 46.4311846,17.7626627 46.8853017,17.4860698 C47.340547,17.2091882 47.7797148,16.7042185 48.2053438,15.9717381 L48.2702177,15.9717381 L48.8439283,17.6766244 L50.9548675,17.6766244 L50.9548675,9.28789113 C50.9548675,7.8977087 50.620626,6.82251879 49.9538355,6.06376502 C49.2859168,5.30472252 48.3145011,4.92592307 47.036486,4.92592307 L47.036486,4.92592307 Z M37.6433144,17.6766244 L40.5217396,17.6766244 L40.5217396,0.227308542 L37.6433144,0.227308542 L37.6433144,17.6766244 Z M33.7579339,0.316522742 C33.2609437,0.316522742 32.8733929,0.460882289 32.5952814,0.748735225 C32.3177341,1.03658816 32.1786784,1.42693638 32.1786784,1.92035731 C32.1786784,2.42850291 32.3228112,2.82260447 32.6110768,3.10352815 C32.8999066,3.38416311 33.2823803,3.52390315 33.7579339,3.52390315 C34.2131792,3.52390315 34.5843706,3.38416311 34.8732003,3.10352815 C35.1614659,2.82260447 35.3058808,2.42850291 35.3058808,1.92035731 C35.3058808,1.42693638 35.1656968,1.03658816 34.8836365,0.748735225 C34.6024224,0.460882289 34.2270002,0.316522742 33.7579339,0.316522742 L33.7579339,0.316522742 Z M32.2979899,17.6766244 L35.1761331,17.6766244 L35.1761331,5.1834605 L32.2979899,5.1834605 L32.2979899,17.6766244 Z M26.6920417,4.94786572 C25.3353318,4.94786572 24.3509414,5.66966345 23.7377423,7.11210404 L23.6294312,7.11210404 C23.1389283,5.66966345 22.1579227,4.94786572 20.685568,4.94786572 C20.1152421,4.94786572 19.5798916,5.0956899 19.0789526,5.39162697 C18.5771673,5.68640916 18.1820009,6.15240178 17.8937353,6.78729506 L17.7095499,6.78729506 L17.3634619,5.1834605 L15.0796198,5.1834605 L15.0796198,17.6766244 L17.9588912,17.6766244 L17.9588912,11.6770416 C17.9588912,10.1814767 18.0999213,9.10888529 18.3808534,8.45811246 C18.6620675,7.80820578 19.1125178,7.48224192 19.7330504,7.48224192 C20.6206941,7.48224192 21.0643749,8.39892504 21.0643749,10.2302703 L21.0643749,17.6766244 L23.965365,17.6766244 L23.965365,11.6097701 C23.965365,10.1661746 24.1018821,9.11783559 24.3760447,8.4633094 C24.6502073,7.80993809 25.1046064,7.48224192 25.7395242,7.48224192 C26.6122187,7.48224192 27.0491301,8.39892504 27.0491301,10.2302703 L27.0491301,17.6766244 L29.9489918,17.6766244 L29.9489918,9.52348591 C29.9489918,8.02878717 29.6731369,6.89181138 29.1211449,6.11429086 C28.5691529,5.33677034 27.7596399,4.94786572 26.6920417,4.94786572 L26.6920417,4.94786572 Z M11.1942394,0.316522742 C10.6969671,0.316522742 10.3091342,0.460882289 10.0315869,0.748735225 C9.75403955,1.03658816 9.61470177,1.42693638 9.61470177,1.92035731 C9.61470177,2.42850291 9.75911663,2.82260447 10.0482284,3.10352815 C10.336212,3.38416311 10.7186857,3.52390315 11.1942394,3.52390315 C11.6492026,3.52390315 12.020676,3.38416311 12.3095057,3.10352815 C12.5977713,2.82260447 12.7419041,2.42850291 12.7419041,1.92035731 C12.7419041,1.42693638 12.6017202,1.03658816 12.3207881,0.748735225 C12.0387279,0.460882289 11.6641518,0.316522742 11.1942394,0.316522742 L11.1942394,0.316522742 Z M9.73401327,17.6766244 L12.6121564,17.6766244 L12.6121564,5.1834605 L9.73401327,5.1834605 L9.73401327,17.6766244 Z M5.16717519,8.40238967 C4.40250976,7.87894196 3.86687727,7.41150574 3.55999568,7.00065847 C3.25367821,6.5898112 3.10051948,6.10707288 3.10051948,5.55359838 C3.10051948,4.9929059 3.22857485,4.55029953 3.48440353,4.22433567 C3.74051427,3.89952669 4.10662852,3.73726656 4.58246422,3.73726656 C5.01570882,3.73726656 5.42131151,3.81897406 5.80040053,3.98354395 C6.17948955,4.14840255 6.54193702,4.3352038 6.88802499,4.54423643 L7.86197915,2.09994058 C6.74332806,1.39690959 5.57813702,1.04553845 4.36612398,1.04553845 C3.09600651,1.04553845 2.08482039,1.45725188 1.33030913,2.27894642 C0.576926107,3.10150712 0.199811506,4.2156741 0.199811506,5.62086993 C0.199811506,6.35421642 0.295994063,6.99690513 0.486948876,7.54951347 C0.67818575,8.10298797 0.948117443,8.602472 1.29843632,9.04709941 C1.64790901,9.49172681 2.16182285,9.95743071 2.84017784,10.4433449 C3.6195104,10.9959533 4.17827183,11.4991907 4.51730829,11.9516135 C4.85662682,12.4040363 5.02614505,12.9026542 5.02614505,13.4480445 C5.02614505,14.0015191 4.88426872,14.4389285 4.59882371,14.7605615 C4.31422489,15.0819059 3.89028828,15.2430112 3.32729595,15.2430112 C2.33923877,15.2430112 1.25330667,14.8428465 0.0700637748,14.0430946 L0.0700637748,17.059343 C1.03640231,17.6197467 2.20949104,17.9006704 3.58679141,17.9006704 C4.99427223,17.9006704 6.07033222,17.4932878 6.81779198,16.6785225 C7.56440555,15.862891 7.93728925,14.6895367 7.93728925,13.156727 C7.93728925,12.2004893 7.73392378,11.3476131 7.32634667,10.6001194 C6.91820544,9.8529144 6.19838759,9.1195679 5.16717519,8.40238967 L5.16717519,8.40238967 Z" id="Fill-6" fill="#FFFFFF" mask="url(#mask-4)"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+</a>
 
-            </div>
 
-      </div>
-      <!--GoogleAnalytics code-->
-      <script>
-            (function (i, s, o, g, r, a, m) {
-                  i['GoogleAnalyticsObject'] = r;
-                  i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                  }, i[r].l = 1 * new Date();
-                  a = s.createElement(o),
-                        m = s.getElementsByTagName(o)[0];
-                  a.async = 1;
-                  a.src = g;
-                  m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-            ga('create', 'UA-71087902-9', 'auto');
-            ga('send', 'pageview');
-      </script>
 
       <!--Vendor:Jq-->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
